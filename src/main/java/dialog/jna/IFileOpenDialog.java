@@ -23,23 +23,17 @@
  */
 package dialog.jna;
 
-import com.sun.jna.Pointer;
-import com.sun.jna.platform.win32.WinDef.HWND;
+import com.sun.jna.platform.win32.Guid.CLSID;
+import com.sun.jna.platform.win32.Guid.IID;
 import com.sun.jna.platform.win32.WinNT.HRESULT;
-import com.sun.jna.platform.win32.COM.Unknown;
+import com.sun.jna.ptr.PointerByReference;
 
-public class ModalWindow extends Unknown implements IModalWindow {
+public interface IFileOpenDialog extends IFileDialog {
 
-    public ModalWindow() {
-    }
+    final static IID IID_IFILEOPENDIALOG = new IID("{d57c7288-d4ad-4768-be02-9d969532d960}");
+    final static CLSID CLSID_FILEOPENDIALOG = new CLSID("{DC1C5A9C-E88A-4dde-A5A1-60F82A20AEF7}");
 
-    public ModalWindow(Pointer pvInstance) {
-        super(pvInstance);
-    }
+    HRESULT GetResults(PointerByReference ppenum); // IShellItemArray
 
-    // VTBL Id indexing starts at 3 after Unknown's 0, 1, 2
-
-    public HRESULT Show(HWND hwndOwner) {
-        return (HRESULT) this._invokeNativeObject(3, new Object[] { this.getPointer(), hwndOwner }, HRESULT.class);
-    }
+    HRESULT GetSelectedItems(PointerByReference ppsai); // IShellItemArray
 }

@@ -24,22 +24,25 @@
 package dialog.jna;
 
 import com.sun.jna.Pointer;
-import com.sun.jna.platform.win32.WinDef.HWND;
 import com.sun.jna.platform.win32.WinNT.HRESULT;
-import com.sun.jna.platform.win32.COM.Unknown;
+import com.sun.jna.ptr.PointerByReference;
 
-public class ModalWindow extends Unknown implements IModalWindow {
+public class FileOpenDialog extends FileDialog implements IFileOpenDialog {
 
-    public ModalWindow() {
+    public FileOpenDialog() {
     }
 
-    public ModalWindow(Pointer pvInstance) {
+    public FileOpenDialog(Pointer pvInstance) {
         super(pvInstance);
     }
 
-    // VTBL Id indexing starts at 3 after Unknown's 0, 1, 2
+    // VTBL Id indexing starts at 27 after IFileDialog's 26
 
-    public HRESULT Show(HWND hwndOwner) {
-        return (HRESULT) this._invokeNativeObject(3, new Object[] { this.getPointer(), hwndOwner }, HRESULT.class);
+    public HRESULT GetResults(PointerByReference ppenum) {
+        return (HRESULT) this._invokeNativeObject(27, new Object[] { this.getPointer(), ppenum }, HRESULT.class);
+    }
+
+    public HRESULT GetSelectedItems(PointerByReference ppsai) {
+        return (HRESULT) this._invokeNativeObject(28, new Object[] { this.getPointer(), ppsai }, HRESULT.class);
     }
 }
