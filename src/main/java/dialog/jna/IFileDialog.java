@@ -31,11 +31,13 @@ import com.sun.jna.platform.win32.WinNT.HRESULT;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
+import dialog.jna.ShTypes.COMDLG_FILTERSPEC;
+
 interface IFileDialog extends IModalWindow {
 
     final static IID IID_IFILEDIALOG = new IID("{42f85136-db7e-439c-85f1-e4075d135fc8}");
 
-    HRESULT SetFileTypes(int FileTypes, ShTypes.COMDLG_FILTERSPEC rgFilterSpec);
+    HRESULT SetFileTypes(int FileTypes, COMDLG_FILTERSPEC rgFilterSpec);
 
     HRESULT SetFileTypeIndex(int iFileType);
 

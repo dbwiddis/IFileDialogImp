@@ -24,6 +24,8 @@
 package dialog.jna;
 
 import com.sun.jna.Pointer;
+import com.sun.jna.WString;
+import com.sun.jna.platform.win32.Guid.CLSID;
 import com.sun.jna.platform.win32.Guid.GUID;
 import com.sun.jna.platform.win32.Guid.IID;
 import com.sun.jna.platform.win32.Guid.REFIID;
@@ -32,23 +34,19 @@ import com.sun.jna.platform.win32.COM.IUnknown;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
-import dialog.jna.ShTypes.GETPROPERTYSTOREFLAGS;
-import dialog.jna.ShTypes.PROPERTYKEY;
+public interface IShellItem extends IUnknown {
 
-public interface IShellItemArray extends IUnknown {
+    final static IID IID_ISHELLITEM = new IID("{43826d1e-e718-42ee-bc55-a1e261c37bfe}");
 
-    final static IID IID_ISHELLITEMARRAY = new IID("{b63ea76d-1f85-456f-a19c-48159efa858b}");
+    final static CLSID CLSID_SHELLITEM = new CLSID("{9ac9fbe1-e0a2-4ad6-b4ee-e212013ea917}");
 
-    HRESULT BindToHandler(Pointer pbc, GUID.ByReference bhid, REFIID riid, PointerByReference ppvOut); // IBindCtx
+    HRESULT BindToHandler(Pointer pbc, GUID.ByReference bhid, REFIID riid, PointerByReference ppv); // IBindCtx
 
-    HRESULT GetPropertyStore(GETPROPERTYSTOREFLAGS flags, REFIID riid, PointerByReference ppv);
+    HRESULT GetParent(PointerByReference ppsi); // IShellItem
 
-    HRESULT GetPropertyDescriptionList(PROPERTYKEY keyType, REFIID riid, PointerByReference ppv);
+    HRESULT GetDisplayName(int sigdnName, WString ppszName); // SIGDN
 
-    HRESULT GetAttributes(int AttribFlags, int sfgaoMask, IntByReference psfgaoAttribs); // SIATTRIBFLAGS, SFGAOF,
-                                                                                         // SFGAOF
+    HRESULT GetAttributes(int sfgaoMask, IntByReference psfgaoAttribs); // SFGAOF, SFGAOF
 
-    HRESULT GetCount(IntByReference pdwNumItems);
-
-    HRESULT GetItemAt(int dwIndex, PointerByReference ppsi); // IShellItem
+    HRESULT Compare(Pointer psi, int hint, IntByReference piOrder); // IShellItem , SICHINTF
 }

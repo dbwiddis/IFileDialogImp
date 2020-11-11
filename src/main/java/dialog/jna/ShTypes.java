@@ -143,4 +143,24 @@ public interface ShTypes {
                                         // disables that
         int GPS_MASK_VALID = 0x000000FF;
     }
+
+    interface SIGDN {
+        int SIGDN_NORMALDISPLAY = 0;
+        int SIGDN_PARENTRELATIVEPARSING = 0x80018001;
+        int SIGDN_DESKTOPABSOLUTEPARSING = 0x80028000;
+        int SIGDN_PARENTRELATIVEEDITING = 0x80031001;
+        int SIGDN_DESKTOPABSOLUTEEDITING = 0x8004c000;
+        int SIGDN_FILESYSPATH = 0x80058000;
+        int SIGDN_URL = 0x80068000;
+        int SIGDN_PARENTRELATIVEFORADDRESSBAR = 0x8007c001;
+        int SIGDN_PARENTRELATIVE = 0x80080001;
+        int SIGDN_PARENTRELATIVEFORUI = 0x80094001;
+    }
+
+    interface SICHINTF {
+        int SICHINT_DISPLAY = 0;
+        int SICHINT_ALLFIELDS = 0x80000000;
+        int SICHINT_CANONICAL = 0x10000000;
+        int SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 0x20000000;
+    };
 }
