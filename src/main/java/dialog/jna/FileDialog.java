@@ -40,7 +40,7 @@ public class FileDialog extends ModalWindow implements IFileDialog {
 
     // VTBL Id indexing starts at 4 after ModalWindow's 3
 
-    public HRESULT SetFileTypes(int FileTypes, COMDLG_FILTERSPEC rgFilterSpec) {
+    public HRESULT SetFileTypes(int FileTypes, ShTypes.COMDLG_FILTERSPEC rgFilterSpec) {
         return (HRESULT) this._invokeNativeObject(4, new Object[] { this.getPointer(), FileTypes, rgFilterSpec },
                 HRESULT.class);
     }

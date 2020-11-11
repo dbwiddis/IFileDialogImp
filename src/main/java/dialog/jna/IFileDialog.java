@@ -24,8 +24,6 @@
 package dialog.jna;
 
 import com.sun.jna.Pointer;
-import com.sun.jna.Structure;
-import com.sun.jna.Structure.FieldOrder;
 import com.sun.jna.WString;
 import com.sun.jna.platform.win32.Guid.GUID;
 import com.sun.jna.platform.win32.Guid.IID;
@@ -35,16 +33,9 @@ import com.sun.jna.ptr.PointerByReference;
 
 interface IFileDialog extends IModalWindow {
 
-    // TODO This should probably be in a more general WinAPI class
-    @FieldOrder({ "pszName", "pszSpec" })
-    class COMDLG_FILTERSPEC extends Structure {
-        WString pszName;
-        WString pszSpec;
-    }
-
     final static IID IID_IFILEDIALOG = new IID("{42f85136-db7e-439c-85f1-e4075d135fc8}");
 
-    HRESULT SetFileTypes(int FileTypes, COMDLG_FILTERSPEC rgFilterSpec);
+    HRESULT SetFileTypes(int FileTypes, ShTypes.COMDLG_FILTERSPEC rgFilterSpec);
 
     HRESULT SetFileTypeIndex(int iFileType);
 
