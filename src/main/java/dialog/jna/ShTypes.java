@@ -32,14 +32,14 @@ public interface ShTypes {
 
     @FieldOrder({ "pszName", "pszSpec" })
     class COMDLG_FILTERSPEC extends Structure {
-        WString pszName;
-        WString pszSpec;
+        public WString pszName;
+        public WString pszSpec;
     }
 
     @FieldOrder({ "fmdid", "pid" })
     class PROPERTYKEY extends Structure {
-        GUID fmtid;
-        int pid;
+        public GUID fmtid;
+        public int pid;
     }
 
     interface FILEOPENDIALOGOPTIONS {
