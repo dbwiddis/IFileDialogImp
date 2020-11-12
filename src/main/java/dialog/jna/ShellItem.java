@@ -24,7 +24,6 @@
 package dialog.jna;
 
 import com.sun.jna.Pointer;
-import com.sun.jna.WString;
 import com.sun.jna.platform.win32.Guid.GUID;
 import com.sun.jna.platform.win32.Guid.REFIID;
 import com.sun.jna.platform.win32.WinNT.HRESULT;
@@ -52,7 +51,7 @@ public class ShellItem extends Unknown implements IShellItem {
         return (HRESULT) this._invokeNativeObject(4, new Object[] { this.getPointer(), ppsi }, HRESULT.class);
     }
 
-    public HRESULT GetDisplayName(int sigdnName, WString ppszName) {
+    public HRESULT GetDisplayName(int sigdnName, PointerByReference ppszName) {
         return (HRESULT) this._invokeNativeObject(5, new Object[] { this.getPointer(), sigdnName, ppszName },
                 HRESULT.class);
     }

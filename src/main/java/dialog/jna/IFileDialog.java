@@ -61,7 +61,7 @@ interface IFileDialog extends IModalWindow {
 
     HRESULT SetFileName(WString pszName);
 
-    HRESULT GetFileName(WString pszName);
+    HRESULT GetFileName(PointerByReference pszName); // WString
 
     HRESULT SetTitle(WString pszTitle);
 

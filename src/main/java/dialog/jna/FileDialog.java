@@ -90,7 +90,7 @@ public class FileDialog extends ModalWindow implements IFileDialog {
         return (HRESULT) this._invokeNativeObject(15, new Object[] { this.getPointer(), pszName }, HRESULT.class);
     }
 
-    public HRESULT GetFileName(WString pszName) {
+    public HRESULT GetFileName(PointerByReference pszName) {
         return (HRESULT) this._invokeNativeObject(16, new Object[] { this.getPointer(), pszName }, HRESULT.class);
     }
 

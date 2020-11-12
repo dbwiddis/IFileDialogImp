@@ -24,7 +24,6 @@
 package dialog.jna;
 
 import com.sun.jna.Pointer;
-import com.sun.jna.WString;
 import com.sun.jna.platform.win32.Guid.CLSID;
 import com.sun.jna.platform.win32.Guid.GUID;
 import com.sun.jna.platform.win32.Guid.IID;
@@ -44,7 +43,7 @@ public interface IShellItem extends IUnknown {
 
     HRESULT GetParent(PointerByReference ppsi); // IShellItem
 
-    HRESULT GetDisplayName(int sigdnName, WString ppszName); // SIGDN
+    HRESULT GetDisplayName(int sigdnName, PointerByReference ppszName); // SIGDN, WString
 
     HRESULT GetAttributes(int sfgaoMask, IntByReference psfgaoAttribs); // SFGAOF, SFGAOF
 
