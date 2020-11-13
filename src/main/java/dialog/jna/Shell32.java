@@ -27,6 +27,7 @@ import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.WString;
 import com.sun.jna.platform.win32.Guid.REFIID;
+import com.sun.jna.platform.win32.WinNT.HRESULT;
 import com.sun.jna.ptr.PointerByReference;
 import com.sun.jna.win32.W32APIOptions;
 
@@ -34,5 +35,5 @@ public interface Shell32 extends com.sun.jna.platform.win32.Shell32 {
 
     Shell32 INSTANCE = Native.load("shell32", Shell32.class, W32APIOptions.DEFAULT_OPTIONS);
 
-    void SHCreateItemFromParsingName(WString pszPath, Pointer pbc, REFIID riid, PointerByReference ppv);
+    HRESULT SHCreateItemFromParsingName(WString pszPath, Pointer pbc, REFIID riid, PointerByReference ppv);
 }
