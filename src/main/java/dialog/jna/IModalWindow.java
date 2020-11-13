@@ -30,7 +30,7 @@ import com.sun.jna.platform.win32.COM.IUnknown;
 
 public interface IModalWindow extends IUnknown {
 
-    final static IID IID_IMODALWINDOW = new IID("{b4db1657-70d7-485e-8e3e-6fcb5a5c1802}");
+    IID IID_IMODALWINDOW = new IID("{b4db1657-70d7-485e-8e3e-6fcb5a5c1802}");
 
     HRESULT Show(HWND hwndOwner);
 }

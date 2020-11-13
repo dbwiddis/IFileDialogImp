@@ -37,7 +37,7 @@ import dialog.jna.ShTypes.PROPERTYKEY;
 
 public interface IShellItemArray extends IUnknown {
 
-    final static IID IID_ISHELLITEMARRAY = new IID("{b63ea76d-1f85-456f-a19c-48159efa858b}");
+    IID IID_ISHELLITEMARRAY = new IID("{b63ea76d-1f85-456f-a19c-48159efa858b}");
 
     HRESULT BindToHandler(Pointer pbc, GUID.ByReference bhid, REFIID riid, PointerByReference ppvOut); // IBindCtx
 

@@ -35,8 +35,8 @@ import com.sun.jna.ptr.IntByReference;
 
 interface IFileOperation extends IUnknown {
 
-    final static IID IID_IFILEOPERATION = new IID("{947aab5f-0a5c-4c13-b4d6-4bf7836fc9f8}");
-    final static CLSID CLSID_FILEOPERATION = new CLSID("{3ad05575-8857-4850-9277-11b85bdb8e09}");
+    IID IID_IFILEOPERATION = new IID("{947aab5f-0a5c-4c13-b4d6-4bf7836fc9f8}");
+    CLSID CLSID_FILEOPERATION = new CLSID("{3ad05575-8857-4850-9277-11b85bdb8e09}");
 
     HRESULT Advise(Pointer pfops, IntByReference pdwCookie); // IFileOperationProgressSink
 

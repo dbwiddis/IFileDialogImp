@@ -32,8 +32,8 @@ import com.sun.jna.ptr.PointerByReference;
 
 public interface IFileSaveDialog extends IFileDialog {
 
-    final static IID IID_IFILESAVEDIALOG = new IID("{84bccd23-5fde-4cdb-aea4-af64b83d78ab}");
-    final static CLSID CLSID_FILESAVEDIALOG = new CLSID("{C0B4E2F3-BA21-4773-8DBA-335EC946EB8B}");
+    IID IID_IFILESAVEDIALOG = new IID("{84bccd23-5fde-4cdb-aea4-af64b83d78ab}");
+    CLSID CLSID_FILESAVEDIALOG = new CLSID("{C0B4E2F3-BA21-4773-8DBA-335EC946EB8B}");
 
     HRESULT SetSaveAsItem(Pointer psi);
 

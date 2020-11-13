@@ -35,9 +35,9 @@ import com.sun.jna.ptr.PointerByReference;
 
 public interface IShellItem extends IUnknown {
 
-    final static IID IID_ISHELLITEM = new IID("{43826d1e-e718-42ee-bc55-a1e261c37bfe}");
+    IID IID_ISHELLITEM = new IID("{43826d1e-e718-42ee-bc55-a1e261c37bfe}");
 
-    final static CLSID CLSID_SHELLITEM = new CLSID("{9ac9fbe1-e0a2-4ad6-b4ee-e212013ea917}");
+    CLSID CLSID_SHELLITEM = new CLSID("{9ac9fbe1-e0a2-4ad6-b4ee-e212013ea917}");
 
     HRESULT BindToHandler(Pointer pbc, GUID.ByReference bhid, REFIID riid, PointerByReference ppv); // IBindCtx
 
