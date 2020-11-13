@@ -37,7 +37,7 @@ interface IFileDialog extends IModalWindow {
 
     final static IID IID_IFILEDIALOG = new IID("{42f85136-db7e-439c-85f1-e4075d135fc8}");
 
-    HRESULT SetFileTypes(int FileTypes, COMDLG_FILTERSPEC rgFilterSpec);
+    HRESULT SetFileTypes(int FileTypes, COMDLG_FILTERSPEC[] rgFilterSpec);
 
     HRESULT SetFileTypeIndex(int iFileType);
 

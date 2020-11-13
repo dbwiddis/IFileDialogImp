@@ -29,6 +29,8 @@ import com.sun.jna.platform.win32.WinNT.HRESULT;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
+import dialog.jna.ShTypes.COMDLG_FILTERSPEC;
+
 public class FileDialog extends ModalWindow implements IFileDialog {
 
     public FileDialog() {
@@ -40,7 +42,7 @@ public class FileDialog extends ModalWindow implements IFileDialog {
 
     // VTBL Id indexing starts at 4 after ModalWindow's 3
 
-    public HRESULT SetFileTypes(int FileTypes, ShTypes.COMDLG_FILTERSPEC rgFilterSpec) {
+    public HRESULT SetFileTypes(int FileTypes, COMDLG_FILTERSPEC[] rgFilterSpec) {
         return (HRESULT) this._invokeNativeObject(4, new Object[] { this.getPointer(), FileTypes, rgFilterSpec },
                 HRESULT.class);
     }
