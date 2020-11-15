@@ -33,7 +33,7 @@ import com.sun.jna.platform.win32.WinNT.HRESULT;
 import com.sun.jna.platform.win32.COM.IUnknown;
 import com.sun.jna.ptr.IntByReference;
 
-interface IFileOperation extends IUnknown {
+public interface IFileOperation extends IUnknown {
 
     IID IID_IFILEOPERATION = new IID("{947aab5f-0a5c-4c13-b4d6-4bf7836fc9f8}");
     CLSID CLSID_FILEOPERATION = new CLSID("{3ad05575-8857-4850-9277-11b85bdb8e09}");

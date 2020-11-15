@@ -33,7 +33,7 @@ import com.sun.jna.ptr.PointerByReference;
 
 import dialog.jna.ShTypes.COMDLG_FILTERSPEC;
 
-interface IFileDialog extends IModalWindow {
+public interface IFileDialog extends IModalWindow {
 
     IID IID_IFILEDIALOG = new IID("{42f85136-db7e-439c-85f1-e4075d135fc8}");
 
